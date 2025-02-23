@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeMaster Pro</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn0.iconfinder.com/data/icons/hexagone-business-finance-set-1/128/BLOG_WRITING-512.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p class="loading-text">Loading TypeMaster Pro...</p>
+    </div>
+
+    <!-- Sound Controls -->
+    <div class="sound-controls">
+        <div class="music-dropdown">
+            <button class="sound-toggle" id="musicToggle">
+                <i class="fas fa-music"></i>
+            </button>
+            <div class="music-options">
+                <button class="music-option" data-music="lofi">Chill Lofi Beat</button>
+                <button class="music-option" data-music="ambient">Relaxing Lofi</button>
+                <button class="music-option" data-music="piano">Ambient Lofi</button>
+            </div>
+        </div>
+        <button class="sound-toggle" id="soundToggle">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="lofiMusic" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mp3">
+    </audio>
+    <audio id="ambientMusic" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/10/19/audio_5f12b29ad3.mp3" type="audio/mp3"> 
+    </audio>
+    <audio id="pianoMusic" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2024/01/23/audio_37a51f2298.mp3" type="audio/mp3">
+    </audio>
+
+    <div id="particles-js"></div>
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <div class="container py-5">
+        <div class="glass-card">
+            <div class="card-body position-relative">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span id="wpm-counter">0</span>
+                        <span class="stat-label">WPM</span>
+                    </div>
+                    <div class="stat-item">
+                        <span id="accuracy">100%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                </div>
+
+                <h1 class="text-center mb-4 glowing-text">TypeMaster Pro</h1>
+                <p class="text-center text-gradient mb-4">Challenge yourself to become a typing legend!</p>
+
+                <div class="quote-container mb-4 glass-effect">
+                    <p id="quote" class="lead"></p>
+                </div>
+                
+                <p id="message" class="text-center fw-bold animated-text"></p>
+                
+                <div class="progress mb-3 glass-effect">
+                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control glass-input" id="typed-value" disabled>
+                </div>
+                
+                <div class="text-center">
+                    <button id="start" class="btn btn-glow btn-lg">
+                        <span class="btn-text">Start Challenge</span>
+                    </button>
+                </div>
+
+                <div class="achievements mt-4" id="achievements">
+                    <!-- Achievements will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="celebration-overlay" id="celebrationOverlay">
+        <div class="celebration-content">
+            <h2 class="celebration-title-2">Congratulations!</h2> 
+            <h2 class="celebration-title">🏆</h2>
+            <p id="celebrationMessage" class="mb-4"></p>
+            <button class="btn btn-glow" onclick="hideCelebration()">Continue</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</body>
+</html>
