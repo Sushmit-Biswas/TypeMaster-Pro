@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentWord = words[wordIndex];
         const typedValue = typedValueElement.value;
         
-        // Calculate characters typed
+        // Calculate characters typed - modified logic
         if (typedValue.length > lastTypedLength) {
             // New character typed
             totalChars++;
@@ -139,6 +139,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const correctChar = currentWord[typedValue.length - 1];
             if (typedChar === correctChar) {
                 correctChars++;
+            }
+        } else if (typedValue.length < lastTypedLength) {
+            // Handle backspace - remove from total and correct chars
+            totalChars--;
+            const expectedChar = currentWord[typedValue.length];
+            if (expectedChar === typedValueElement.value[typedValue.length - 1]) {
+                correctChars--;
             }
         }
         lastTypedLength = typedValue.length;
@@ -174,7 +181,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
             typedValueElement.value = '';
             wordIndex++;
-            lastTypedLength = 0;
             for (const wordElement of quoteElement.childNodes) {
                 wordElement.className = '';
             }
